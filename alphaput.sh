@@ -17,6 +17,11 @@ if [[ $# != 3 ]]; then
     exit 1
 fi
 
+if ! which magick &> /dev/null; then
+    echo "Unable to locate ImageMagick executable. Is it installed?" > /dev/stderr
+    exit 1
+fi
+
 primary_image=$1
 secondary_image=$2
 out_file=$3
